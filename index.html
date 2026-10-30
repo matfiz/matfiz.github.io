@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="lt">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Matematinė fizika</title>
+<meta name="description" content="Vido Regelskio paskaitų kursai: dėstomi tiesinės algebros ir simetrijos kursai bei matematika, mechanika, grupių teorija ir kvantiniai skaičiavimai savarankiškoms studijoms." />
+<link rel="canonical" href="https://matfiz.github.io/" />
+<link rel="alternate" hreflang="lt" href="https://matfiz.github.io/" />
+<link rel="alternate" hreflang="en" href="https://matfiz.github.io/en/" />
+<link rel="alternate" hreflang="x-default" href="https://matfiz.github.io/" />
+<link rel="icon" href="/favicon.svg" />
+<link rel="stylesheet" href="/styles.css" />
+<script>
+  // Applied before first paint, so the page never flashes the wrong theme.
+  // The key is shared with the other language: one reader, one choice.
+  (function () {
+    try {
+      var t = localStorage.getItem("matfiz-hub-theme");
+      if (t) document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+
+<!-- The page-top blackboard: decoration only, so hidden from assistive
+     technology and from print. -->
+<div class="board" aria-hidden="true"><div class="board-ink"></div></div>
+<script>
+  // Fade the board out over the first 60% of a screen of scrolling.
+  (function () {
+    var board = document.querySelector(".board"), frame = 0;
+    if (!board) return;
+    function update() {
+      frame = 0;
+      board.style.opacity = String(Math.max(0, 1 - window.scrollY / (window.innerHeight * 0.6)));
+    }
+    window.addEventListener("scroll", function () {
+      if (!frame) frame = requestAnimationFrame(update);
+    }, { passive: true });
+    update();
+  })();
+</script>
+
+<a class="skip-link" href="#main">Pereiti prie kursų</a>
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="/">Matematinė fizika <span>— paskaitų kursai</span></a>
+    <nav class="site-nav" aria-label="Matematinė fizika">
+      <a href="#taught">Dėstomi kursai</a>
+      <a href="#study">Savarankiškoms studijoms</a>
+      <div class="lang-switch" role="group" aria-label="Kalba">
+        <a href="/" hreflang="lt" lang="lt" aria-current="true">LT<span class="lang-full">Lietuvių</span></a>
+        <a href="/en/" hreflang="en" lang="en">EN<span class="lang-full">English</span></a>
+      </div>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Perjungti šviesią ir tamsią temą">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="main">
+
+  <section class="hero">
+    <h1>Matematinė fizika</h1>
+    <p class="lede">Vido Regelskio paskaitų kursai. Tiesinė algebra ir simetrija fizikoje — dėstomi kursai; žemiau — matematikos ir teorinės fizikos kursai savarankiškoms studijoms.</p>
+    <div class="meta">
+      <div><b>2</b> dėstomi kursai</div>
+      <div><b>14</b> kursų savarankiškoms studijoms</div>
+    </div>
+  </section>
+
+  <section class="shelf" id="taught" aria-labelledby="taught-title">
+    <header class="shelf-head">
+      <h2 id="taught-title">Dėstomi kursai</h2>
+      <p>Tiesinė algebra ir simetrija fizikoje — paskaitų konspektai ir mokymosi medžiaga.</p>
+    </header>
+    <ul class="course-list">
+      <li><a class="course-card" style="--card-accent: var(--c-linalg)"
+             href="https://matfiz.atvira-mokykla.lt/algebra/">
+        <svg class="course-glyph" width="34" height="34" viewBox="0 0 32 32" aria-hidden="true"
+             fill="none" stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" stroke-linejoin="round"><path d="M8 24 L23 24" /><path d="M8 24 L15.5 9" />
+          <circle cx="8" cy="24" r="2.2" fill="currentColor" stroke="none" /></svg>
+        <div class="course-body">
+          <h3>Tiesinė algebra fizikams</h3>
+          <p>Tiesinės erdvės, tiesiniai atvaizdavimai ir matricos, skaliarinės sandaugos, tikrinės reikšmės ir spektrinė teorema.</p>
+        </div>
+        <div class="course-go" aria-hidden="true">→</div>
+      </a></li>
+
+      <li><a class="course-card" style="--card-accent: var(--c-symmetries)"
+             href="https://matfiz.atvira-mokykla.lt/simetrija/">
+        <svg class="course-glyph" width="34" height="34" viewBox="0 0 32 32" aria-hidden="true"
+             fill="none" stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" stroke-linejoin="round"><path d="M16 7 L24.5 23 L7.5 23 Z" />
+          <circle cx="16" cy="17.7" r="1.9" fill="currentColor" stroke="none" /></svg>
+        <div class="course-body">
+          <h3>Simetrija fizikoje</h3>
+          <p>Baigtinės grupės ir jų įvaizdžiai, charakteriai, Lie grupės ir jų taikymai fizikoje.</p>
+        </div>
+        <div class="course-go" aria-hidden="true">→</div>
+      </a></li>
+    </ul>
+  </section>
+
+  <section class="shelf" id="study" aria-labelledby="study-title">
+    <header class="shelf-head">
+      <h2 id="study-title">Savarankiškoms studijoms</h2>
+      <p>Kursai sugrupuoti pagal temas. Rinkitės dalyką ir skaitykite savo tempu.</p>
+    </header>
+    <section class="study-group" id="mathematics" aria-labelledby="mathematics-title">
+      <h3 class="group-title" id="mathematics-title">Matematikos pagrindai ir geometrija</h3>
+      <ul class="course-list">
+      <li><a class="course-card" style="--card-accent: var(--c-mathematics)"
+             href="https://matfiz.github.io/matematika-1/">
+        <svg class="course-glyph" width="34" height="34" viewBox="0 0 32 32" aria-hidden="true"
+             fill="none" stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" stroke-linejoin="round"><path d="M7 7 H25 L10 25 H25 M8 16 H20" /></svg>
+        <div class="course-body">
+          <h4>Aukštoji matematika I</h4>
+          <p>Pagrindai, analizė ir geometrija.</p>
+        </div>
+        <div class="course-go" aria-hidden="true">→</div>
+      </a></li>
+
+      <li><a class="course-card" style="--card-accent: var(--c-mathematics)"
+             href="https://matfiz.github.io/matematika-2/">
+        <svg class="course-glyph" width="34" height="34" viewBox="0 0 32 32" aria-hidden="true"
+             fill="none" stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" stroke-linejoin="round"><path d="M7 7 H25 L10 25 H25 M8 16 H20" /></svg>
+        <div class="course-body">
+          <h4>Aukštoji matematika II</h4>
+          <p>Kompleksiniai skaičiai, tiesinė algebra ir integravimas.</p>
+        </div>
+        <div class="course-go" aria-hidden="true">→</div>
+      </a></li>
+
+      <li><a class="course-card" style="--card-accent: var(--c-mathematics)"
+             href="https://matfiz.github.io/matematika-3/">
+        <svg class="course-glyph" width="34" height="34" viewBox="0 0 32 32" aria-hidden="true"
+             fill="none" stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" stroke-linejoin="round"><path d="M7 7 H25 L10 25 H25 M8 16 H20" /></svg>
+        <div class="course-body">
+          <h4>Aukštoji matematika III</h4>
+          <p>Eilutės, diferencialinės lygtys ir vektorinė analizė.</p>
+        </div>
+        <div class="course-go" aria-hidden="true">→</div>
+      </a></li>
+
+      <li><a class="course-card" style="--card-accent: var(--c-analysis)"
+             href="https://matfiz.github.io/analize/">
+        <svg class="course-glyph" width="34" height="34" viewBox="0 0 32 32" aria-hidden="true"
+             fill="none" stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" stroke-linejoin="round"><path d="M5 25 H28 M8 27 V5 M9 22 C14 22 13 9 19 9 S23 19 28 7" /></svg>
+        <div class="course-body">
+          <h4>Realioji ir kompleksinė analizė</h4>
+          <p>Tolygiosios ribos, integravimas ir Furjė analizė; holomorfinės funkcijos, konformieji atvaizdavimai ir elipsinės funkcijos.</p>
+        </div>
+        <div class="course-go" aria-hidden="true">→</div>
+      </a></li>
+
+      <li><a class="course-card" style="--card-accent: var(--c-topology)"
+             href="https://matfiz.github.io/topologija/">
+        <svg class="course-glyph" width="34" height="34" viewBox="0 0 32 32" aria-hidden="true"
+             fill="none" stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" stroke-linejoin="round"><ellipse cx="16" cy="16" rx="12" ry="8" /><path d="M10 13 C12 18 20 18 22 13 M10 13 C13 10 19 10 22 13" /></svg>
+        <div class="course-body">
+          <h4>Topologija ir geometrija</h4>
+          <p>Topologinės erdvės, homotopija, homologija ir daugdaros; metrikos, kreivumas, pluoštai ir kalibraciniai laukai.</p>
+        </div>
+        <div class="course-go" aria-hidden="true">→</div>
+      </a></li>
+    </ul>
+    </section>
+
+    <section class="study-group" id="mechanics" aria-labelledby="mechanics-title">
+      <h3 class="group-title" id="mechanics-title">Klasikinė ir kvantinė mechanika</h3>
+      <ul class="course-list">
+      <li><a class="course-card" style="--card-accent: var(--c-mechanics)"
+             href="https://matfiz.github.io/mechanika/">
+        <svg class="course-glyph" width="34" height="34" viewBox="0 0 32 32" aria-hidden="true"
+             fill="none" stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" stroke-linejoin="round"><path d="M16 5 L21.8 19.2" />
+          <circle cx="16" cy="5" r="1.9" fill="currentColor" stroke="none" />
+          <circle cx="22.4" cy="20.8" r="3.4" fill="currentColor" stroke="none" />
+          <path d="M8.2 17.6 A 15.4 15.4 0 0 0 26.4 14.6" stroke-width="1.7" stroke-dasharray="2.2 3.2" /></svg>
+        <div class="course-body">
+          <h4>Teorinė mechanika</h4>
+          <p>Lagranžo ir Hamiltono mechanika, Puasono skliaustai, simetrijos ir tvermės dėsniai, Hamiltono–Jakobio teorija.</p>
+        </div>
+        <div class="course-go" aria-hidden="true">→</div>
+      </a></li>
+
+      <li><a class="course-card" style="--card-accent: var(--c-quantum)"
+             href="https://matfiz.github.io/kvantine-mechanika-1/">
+        <svg class="course-glyph" width="34" height="34" viewBox="0 0 32 32" aria-hidden="true"
+             fill="none" stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="10.5" stroke-width="2" />
+          <ellipse cx="16" cy="16" rx="10.5" ry="3.6" stroke-width="1.4" />
+          <path d="M16 16 L22.4 8.6" />
+          <circle cx="22.4" cy="8.6" r="2.1" fill="currentColor" stroke="none" /></svg>
+        <div class="course-body">
+          <h4>Kvantinė mechanika I</h4>
+          <p>Baigtinės sistemos: kubitas ir Blocho sfera, mišriosios būsenos, sukinys ir sudėtinės sistemos.</p>
+        </div>
+        <div class="course-go" aria-hidden="true">→</div>
+      </a></li>
+
+      <li><a class="course-card" style="--card-accent: var(--c-quantum)"
+             href="https://matfiz.github.io/kvantine-mechanika-2/">
+        <svg class="course-glyph" width="34" height="34" viewBox="0 0 32 32" aria-hidden="true"
+             fill="none" stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" stroke-linejoin="round"><path d="M6 5 C 8.5 20, 10.5 26, 16 26 C 21.5 26, 23.5 20, 26 5" />
+          <path d="M11.6 13 L20.4 13" stroke-width="1.9" />
+          <path d="M9.3 21 L22.7 21" stroke-width="1.9" /></svg>
+        <div class="course-body">
+          <h4>Kvantinė mechanika II</h4>
+          <p>Tolydžios sistemos: dalelė tiesėje, operatoriai ir spektrai, harmoninis osciliatorius, potencialai ir erdvė.</p>
+        </div>
+        <div class="course-go" aria-hidden="true">→</div>
+      </a></li>
+
+      <li><a class="course-card" style="--card-accent: var(--c-quantum)"
+             href="https://matfiz.github.io/kvantine-mechanika-3/">
+        <svg class="course-glyph" width="34" height="34" viewBox="0 0 32 32" aria-hidden="true"
+             fill="none" stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" stroke-linejoin="round"><path d="M5 21 A 11 11 0 0 1 27 21" />
+          <path d="M16 21 L22 11.5" />
+          <circle cx="16" cy="21" r="2.1" fill="currentColor" stroke="none" />
+          <path d="M5 26 L27 26" stroke-width="1.8" /></svg>
+        <div class="course-body">
+          <h4>Kvantinė mechanika III</h4>
+          <p>Kvantinės teorijos pagrindai: būsenos ir stebiniai, simetrija ir laikas, atvirosios sistemos ir matavimas.</p>
+        </div>
+        <div class="course-go" aria-hidden="true">→</div>
+      </a></li>
+    </ul>
+    </section>
+
+    <section class="study-group" id="groups" aria-labelledby="groups-title">
+      <h3 class="group-title" id="groups-title">Grupės ir Lie teorija</h3>
+      <ul class="course-list">
+      <li><a class="course-card" style="--card-accent: var(--c-finite)"
+             href="https://matfiz.github.io/grupes/">
+        <svg class="course-glyph" width="34" height="34" viewBox="0 0 32 32" aria-hidden="true"
+             fill="none" stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" stroke-linejoin="round"><path d="M16 7 L24.5 23 L7.5 23 Z" />
+          <circle cx="16" cy="17.7" r="1.9" fill="currentColor" stroke="none" /></svg>
+        <div class="course-body">
+          <h4>Baigtinės grupės ir jų įvaizdžiai</h4>
+          <p>Grupių sandara, įvaizdžiai ir charakteriai, simetrinė grupė.</p>
+        </div>
+        <div class="course-go" aria-hidden="true">→</div>
+      </a></li>
+
+      <li><a class="course-card" style="--card-accent: var(--c-algebras)"
+             href="https://matfiz.github.io/lie-algebros/">
+        <svg class="course-glyph" width="34" height="34" viewBox="0 0 32 32" aria-hidden="true"
+             fill="none" stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" stroke-linejoin="round"><path d="M5 24 L16 6 L27 24 Z M10 15 H22 M11 24 L16 15 L21 24" /></svg>
+        <div class="course-body">
+          <h4>Lie algebros</h4>
+          <p>Lie algebros ir jų įvaizdžių teorija.</p>
+        </div>
+        <div class="course-go" aria-hidden="true">→</div>
+      </a></li>
+
+      <li><a class="course-card" style="--card-accent: var(--c-lie)"
+             href="https://matfiz.github.io/lie-grupes/">
+        <svg class="course-glyph" width="34" height="34" viewBox="0 0 32 32" aria-hidden="true"
+             fill="none" stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="11" /><ellipse cx="16" cy="16" rx="5" ry="11" /><path d="M6 12 Q16 18 26 12 M6 20 Q16 14 26 20" /></svg>
+        <div class="course-body">
+          <h4>Lie grupės ir jų įvaizdžių teorija</h4>
+          <p>Lie grupės, jų Lie algebros ir įvaizdžiai.</p>
+        </div>
+        <div class="course-go" aria-hidden="true">→</div>
+      </a></li>
+    </ul>
+    </section>
+
+    <section class="study-group" id="structures" aria-labelledby="structures-title">
+      <h3 class="group-title" id="structures-title">Kategorijos ir kvantiniai skaičiavimai</h3>
+      <ul class="course-list">
+      <li><a class="course-card" style="--card-accent: var(--c-categories)"
+             href="https://matfiz.github.io/kategorijos/">
+        <svg class="course-glyph" width="34" height="34" viewBox="0 0 32 32" aria-hidden="true"
+             fill="none" stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="24" r="2" /><circle cx="26" cy="24" r="2" /><circle cx="16" cy="6" r="2" /><path d="M8 21 L14 10 M18 10 L24 21 M10 24 H22 M10 12 L14 10 L14 14 M20 20 L24 21 L24 17 M19 21 L22 24 L19 27" /></svg>
+        <div class="course-body">
+          <h4>Kategorijų teorija matematinei fizikai</h4>
+          <p>Pintosios, suliejimo ir modulių kategorijos diagramomis.</p>
+        </div>
+        <div class="course-go" aria-hidden="true">→</div>
+      </a></li>
+
+      <li><a class="course-card" style="--card-accent: var(--c-computing)"
+             href="https://matfiz.github.io/skaiciavimai/">
+        <svg class="course-glyph" width="34" height="34" viewBox="0 0 32 32" aria-hidden="true"
+             fill="none" stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" stroke-linejoin="round"><path d="M4 10 L28 10" stroke-width="1.8" /><path d="M4 23 L28 23" stroke-width="1.8" />
+          <path d="M16 10 L16 23" stroke-width="1.8" />
+          <circle cx="16" cy="10" r="2.4" fill="currentColor" stroke="none" />
+          <circle cx="16" cy="23" r="3.6" /></svg>
+        <div class="course-body">
+          <h4>Kvantiniai skaičiavimai</h4>
+          <p>Kvantinės schemos, algoritmai ir kodai: fazės įvertinimas, Šoro ir Groverio algoritmai, stabilizatorių ir torinis kodai.</p>
+        </div>
+        <div class="course-go" aria-hidden="true">→</div>
+      </a></li>
+    </ul>
+    </section>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Matematinė fizika — Vido Regelskio paskaitų kursai.</p>
+  </div>
+</footer>
+
+<script>
+  document.querySelector("[data-theme-toggle]")?.addEventListener("click", function () {
+    var root = document.documentElement;
+    var current = root.getAttribute("data-theme");
+    if (!current) {
+      current = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    var next = current === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("matfiz-hub-theme", next); } catch (e) {}
+  });
+</script>
+
+</body>
+</html>
