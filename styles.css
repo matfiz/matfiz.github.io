@@ -261,7 +261,13 @@ a.course-card:hover { border-color: var(--card-accent); transform: translateY(-1
   .course-body p { font-size: .84rem; }
 }
 
-/* Subject groups retain the reference frontpage's single-column shelf. */
+/* Wide screens show two course cards per row within each subject group.
+   Keep reading and keyboard order across each row; narrow screens stack. */
+@media (min-width: 72rem) {
+  .course-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem 1rem; }
+  .course-list > li { min-width: 0; }
+  .course-card { height: 100%; grid-template-columns: 2.25rem minmax(0, 1fr) auto; gap: .85rem; }
+}
 .study-group { margin-top: 2rem; }
 .group-title { margin: 0 0 .85rem; font-size: 1rem; color: var(--text-muted); }
 .course-body { min-width: 0; }
