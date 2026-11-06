@@ -223,7 +223,7 @@ a { color: var(--accent-text); text-underline-offset: 2px; }
 a.course-card:hover { border-color: var(--card-accent); transform: translateY(-1px); box-shadow: var(--shadow); }
 .course-glyph { color: var(--card-accent); display: block; }
 .course-body :is(h3, h4) { margin: 0 0 .15rem; font-size: 1.05rem; font-weight: 620; }
-.course-body p { margin: 0; font-size: .875rem; color: var(--text-muted); max-width: 62ch; }
+.course-body p { margin: 0; font-size: .875rem; color: var(--text-muted); }
 .course-go { color: var(--text-faint); font-size: 1.1rem; }
 
 
