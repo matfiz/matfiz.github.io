@@ -51,6 +51,7 @@
     <nav class="site-nav" aria-label="Mathematical Physics">
       <a href="#taught">Taught courses</a>
       <a href="#study">Self-study</a>
+      <a href="#feedback">Feedback</a>
       <div class="lang-switch" role="group" aria-label="Language">
         <a href="/" hreflang="lt" lang="lt">LT<span class="lang-full">Lietuvių</span></a>
         <a href="/en/" hreflang="en" lang="en" aria-current="true">EN<span class="lang-full">English</span></a>
@@ -331,6 +332,76 @@
     </section>
   </section>
 
+  <section class="feedback" id="feedback" aria-label="Report an error or leave a comment">
+    <details class="feedback-panel" data-feedback>
+      <summary>
+        <span class="feedback-heading">Report an error or leave a comment<span class="feedback-intro">Found an error or have a suggestion? Send a message to the course author.</span></span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+      </summary>
+      <div class="feedback-content">
+        <p class="feedback-status" role="status" data-feedback-status hidden>Thank you! Your message has been submitted.</p>
+        <form class="feedback-form" action="https://formsubmit.co/uqglmn@gmail.com" method="POST" accept-charset="UTF-8">
+          <input type="hidden" name="_subject" value="Matfiz — course feedback" />
+          <input type="hidden" name="_next" value="https://matfiz.github.io/en/?feedback=received#feedback" />
+          <input type="hidden" name="_url" value="https://matfiz.github.io/en/" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="true" />
+          <input type="hidden" name="language" value="en" />
+          <input class="feedback-honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <div class="feedback-field">
+            <label for="feedback-course">Course</label>
+            <select id="feedback-course" name="course">
+              <option value="General">General feedback about the site</option>
+            <option value="https://matfiz.atvira-mokykla.lt/algebra/en/">Linear Algebra for Physicists</option>
+            <option value="https://matfiz.atvira-mokykla.lt/simetrija/en/">Symmetries in Physics</option>
+            <option value="https://matfiz.github.io/matematika-1/en/">General Mathematics I</option>
+            <option value="https://matfiz.github.io/matematika-2/en/">General Mathematics II</option>
+            <option value="https://matfiz.github.io/matematika-3/en/">General Mathematics III</option>
+            <option value="https://matfiz.github.io/analize/en/">Real and Complex Analysis</option>
+            <option value="https://matfiz.github.io/topologija/en/">Topology and Geometry</option>
+            <option value="https://matfiz.github.io/mechanika/en/">Theoretical Mechanics</option>
+            <option value="https://matfiz.github.io/kvantine-mechanika-1/en/">Quantum Mechanics I</option>
+            <option value="https://matfiz.github.io/kvantine-mechanika-2/en/">Quantum Mechanics II</option>
+            <option value="https://matfiz.github.io/kvantine-mechanika-3/en/">Quantum Mechanics III</option>
+            <option value="https://matfiz.github.io/statistine-fizika/en/">Statistical Physics</option>
+            <option value="https://matfiz.github.io/grupes/en/">Finite Groups and Their Representations</option>
+            <option value="https://matfiz.github.io/lie-algebros/en/">Lie Algebras</option>
+            <option value="https://matfiz.github.io/lie-grupes/en/">Lie Groups and Their Representation Theory</option>
+            <option value="https://matfiz.github.io/kategorijos/en/">Category Theory for Mathematical Physics</option>
+            <option value="https://matfiz.github.io/skaiciavimai/en/">Quantum Computing</option>
+            </select>
+          </div>
+          <div class="feedback-field">
+            <label for="feedback-kind">Message type</label>
+            <select id="feedback-kind" name="type">
+              <option value="Error report">Error report</option>
+              <option value="Comment or suggestion">Comment or suggestion</option>
+            </select>
+          </div>
+          <div class="feedback-field">
+            <label for="feedback-location">Page or lecture (optional)</label>
+            <input id="feedback-location" name="location" type="text" maxlength="500" placeholder="Link, lecture number or PDF page" />
+          </div>
+          <div class="feedback-field">
+            <label for="feedback-email">Your email (optional)</label>
+            <input id="feedback-email" name="email" type="email" autocomplete="email" maxlength="254" aria-describedby="feedback-email-hint" />
+            <span class="feedback-hint" id="feedback-email-hint">Include it if you would like a reply</span>
+          </div>
+          <div class="feedback-field feedback-message">
+            <label for="feedback-message">Your message</label>
+            <textarea id="feedback-message" name="message" rows="5" maxlength="10000" required placeholder="Describe the error or suggestion. For an error, include where you found it." data-empty-message="Please enter a message."></textarea>
+          </div>
+          <div class="feedback-actions">
+            <button class="feedback-submit" type="submit">Send message</button>
+            <p>Your message is sent through <a href="https://formsubmit.co/" rel="external">FormSubmit</a>.</p>
+          </div>
+        </form>
+        <p class="feedback-direct">Or email directly: <a href="mailto:uqglmn@gmail.com">uqglmn@gmail.com</a></p>
+      </div>
+    </details>
+  </section>
+
 </main>
 
 <footer class="site-footer">
@@ -350,6 +421,29 @@
     root.setAttribute("data-theme", next);
     try { localStorage.setItem("matfiz-hub-theme", next); } catch (e) {}
   });
+  (function () {
+    var panel = document.querySelector("[data-feedback]");
+    var status = document.querySelector("[data-feedback-status]");
+    var form = document.querySelector(".feedback-form");
+    var message = document.getElementById("feedback-message");
+    function revealFeedback() {
+      if (window.location.hash === "#feedback") panel.open = true;
+    }
+    window.addEventListener("hashchange", revealFeedback);
+    revealFeedback();
+    if (new URLSearchParams(window.location.search).get("feedback") === "received") {
+      panel.open = true;
+      status.hidden = false;
+    }
+    message.addEventListener("input", function () { message.setCustomValidity(""); });
+    form.addEventListener("submit", function (event) {
+      if (!message.value.trim()) {
+        event.preventDefault();
+        message.setCustomValidity(message.dataset.emptyMessage);
+        message.reportValidity();
+      }
+    });
+  })();
 </script>
 
 </body>

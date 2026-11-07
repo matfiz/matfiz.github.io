@@ -230,6 +230,40 @@ a.course-card:hover { border-color: var(--card-accent); transform: translateY(-1
 .course-go { color: var(--text-faint); font-size: 1.1rem; }
 
 
+/* ---------- feedback ---------- */
+.feedback { margin-top: 3rem; }
+.feedback-panel { border: 1px solid var(--rule); border-radius: var(--radius); background: var(--bg-raised); }
+.feedback-panel summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.25rem; cursor: pointer; list-style: none; }
+.feedback-panel summary::-webkit-details-marker { display: none; }
+.feedback-heading { color: var(--heading); font-size: 1rem; font-weight: 620; }
+.feedback-intro { display: block; margin-top: .2rem; color: var(--text-muted); font-size: .875rem; font-weight: 400; }
+.feedback-panel summary svg { flex-shrink: 0; color: var(--text-muted); transition: transform .15s ease; }
+.feedback-panel[open] summary svg { transform: rotate(180deg); }
+.feedback-panel[open] summary { border-bottom: 1px solid var(--rule); }
+.feedback-content { padding: 1.25rem; }
+.feedback-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 1.25rem; }
+.feedback-field { display: flex; flex-direction: column; gap: .35rem; min-width: 0; }
+.feedback-field label { color: var(--heading); font-size: .875rem; font-weight: 550; }
+.feedback-field :is(input, select, textarea) { width: 100%; min-width: 0; padding: .65rem .75rem; border: 1px solid var(--rule-strong); border-radius: 7px; background: var(--bg); color: var(--text); font: inherit; font-size: 1rem; }
+.feedback-field :is(input, textarea)::placeholder { color: var(--text-muted); opacity: 1; }
+.feedback-field textarea { resize: vertical; min-height: 8rem; line-height: 1.5; }
+.feedback-field select { text-overflow: ellipsis; }
+.feedback-hint, .feedback-actions p, .feedback-direct { font-size: .8rem; color: var(--text-muted); }
+.feedback-message, .feedback-actions { grid-column: 1 / -1; }
+.feedback-actions { display: flex; align-items: center; flex-wrap: wrap; gap: .75rem 1rem; }
+.feedback-actions p { margin: 0; }
+.feedback-submit { min-height: 2.75rem; padding: .65rem 1rem; border: 1px solid var(--accent); border-radius: 7px; background: var(--accent); color: var(--bg); font: inherit; font-size: .9rem; font-weight: 550; cursor: pointer; }
+.feedback-submit:hover { filter: brightness(1.12); }
+.feedback-direct { margin: 1rem 0 0; overflow-wrap: anywhere; }
+.feedback-status { margin: 0 0 1.25rem; padding: .75rem 1rem; border-left: 3px solid var(--accent); border-radius: 4px; background: var(--bg-sunken); color: var(--text); }
+.feedback-honey { display: none; }
+.feedback-panel summary:focus-visible, .feedback-field :is(input, select, textarea):focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+@media (max-width: 40rem) {
+  .feedback-form { grid-template-columns: minmax(0, 1fr); }
+  .feedback-panel summary, .feedback-content { padding: 1rem; }
+}
+@media print { .feedback { display: none; } }
+
 /* ---------- footer ---------- */
 .site-footer {
   margin-top: 5rem; border-top: 1px solid var(--rule);
