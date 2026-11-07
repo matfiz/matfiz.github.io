@@ -114,42 +114,34 @@ body {
   isolation: isolate;
 }
 
-/* ---------- the historical engraving ----------
-   Original artwork inspired by Semenavičius's Artis Magnae Artilleriae (1650).
-   Transparent ink is lightly overlaid, lifted in dark mode, and faded below
-   the introduction. The scroll listener in index.html fades the entire layer. */
+/* ---------- the plate ----------
+   A line-art panorama from Semenavičius's rockets (Artis Magnae Artilleriae,
+   1650) through Galileo's parabola and Hamilton's phase portrait to quantum
+   mechanics (wave packet, oscillator, Bloch sphere) and a naturality square
+   from category theory. The SVG
+   (tools/plate.py) is used as a mask, so each theme inks it in its own text
+   colour. The scroll listener in index.html fades the entire layer. */
 .board {
   position: absolute; top: 0; left: 0; right: 0; height: 560px;
   z-index: -1; pointer-events: none; overflow: hidden;
-  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 25%, transparent 90%);
-          mask-image: linear-gradient(to bottom, #000 0%, #000 25%, transparent 90%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 330px, transparent 480px);
+          mask-image: linear-gradient(to bottom, #000 0, #000 330px, transparent 480px);
 }
 .board-ink {
   position: absolute; inset: 0;
-  background-image: url("semenavicius-1650-balanced.webp");
-  background-position: center 3.75rem;
-  background-size: clamp(72rem, 100vw, 112rem) auto;
-  background-repeat: no-repeat;
-  filter: var(--board-filter);
-  opacity: var(--board-opacity);
+  background-color: var(--board-ink);
+  -webkit-mask: url("artis-plate.svg") no-repeat center 4.5rem / clamp(72rem, 100vw, 100rem) auto;
+          mask: url("artis-plate.svg") no-repeat center 4.5rem / clamp(72rem, 100vw, 100rem) auto;
 }
-/* Lift only the faint central ink in dark mode, keeping the portrait natural. */
-.board-ink::after {
-  content: ""; position: absolute; inset: 0;
-  background-image: inherit; background-position: inherit;
-  background-size: inherit; background-repeat: inherit;
-  filter: invert(1); opacity: var(--board-notes-lift);
-  -webkit-mask-image: linear-gradient(to right, transparent 28%, #000 33%, #000 67%, transparent 72%);
-          mask-image: linear-gradient(to right, transparent 28%, #000 33%, #000 67%, transparent 72%);
-}
-:root { --board-filter: grayscale(1); --board-opacity: .26; --board-notes-lift: 0; }
+:root { --board-ink: color-mix(in srgb, var(--text) 19%, transparent); }
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) { --board-filter: grayscale(1) brightness(1.35); --board-opacity: .24; --board-notes-lift: 1; }
+  :root:not([data-theme="light"]) { --board-ink: color-mix(in srgb, var(--text) 15%, transparent); }
 }
-:root[data-theme="dark"] { --board-filter: grayscale(1) brightness(1.35); --board-opacity: .24; --board-notes-lift: 1; }
+:root[data-theme="dark"] { --board-ink: color-mix(in srgb, var(--text) 15%, transparent); }
+/* Phones show the middle of the plate, the flight and the phase portrait,
+   at a size where its lines still read as drawing rather than noise. */
 @media (max-width: 40rem) {
-  .board { height: 440px; }
-  .board-ink { background-size: 100% auto; background-position: center 4.5rem; opacity: .18; }
+  .board-ink { -webkit-mask-size: 300% auto; mask-size: 300% auto; -webkit-mask-position: 52% 4.25rem; mask-position: 52% 4.25rem; }
 }
 @media print { .board { display: none; } }
 
