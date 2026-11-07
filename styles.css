@@ -114,31 +114,33 @@ body {
   isolation: isolate;
 }
 
-/* ---------- the blackboard ----------
-   A faint board of formulas from across the collection behind the top of
-   the page. The SVG is a MASK and the ink is a theme colour, so it follows
-   light and dark without a second drawing. It fades downward, and fades
-   again as the reader scrolls (the listener in index.html). */
+/* ---------- the historical engraving ----------
+   Original artwork inspired by Semenavičius's Artis Magnae Artilleriae (1650).
+   Transparent ink is lightly overlaid, lifted in dark mode, and faded below
+   the introduction. The scroll listener in index.html fades the entire layer. */
 .board {
-  position: absolute; top: 0; left: 0; right: 0; height: 500px;
+  position: absolute; top: 0; left: 0; right: 0; height: 560px;
   z-index: -1; pointer-events: none; overflow: hidden;
-  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 30%, transparent 100%);
-          mask-image: linear-gradient(to bottom, #000 0%, #000 30%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 25%, transparent 90%);
+          mask-image: linear-gradient(to bottom, #000 0%, #000 25%, transparent 90%);
 }
 .board-ink {
   position: absolute; inset: 0;
-  background: var(--board-ink); opacity: var(--board-opacity);
-  -webkit-mask: url("blackboard.svg") top center / 1800px 500px repeat-x;
-          mask: url("blackboard.svg") top center / 1800px 500px repeat-x;
+  background-image: url("semenavicius-1650-portrait.webp");
+  background-position: center 3.75rem;
+  background-size: clamp(72rem, 100vw, 112rem) auto;
+  background-repeat: no-repeat;
+  filter: var(--board-filter);
+  opacity: var(--board-opacity);
 }
-:root { --board-ink: var(--heading); --board-opacity: .075; }
+:root { --board-filter: grayscale(1); --board-opacity: .26; }
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) { --board-opacity: .07; }
+  :root:not([data-theme="light"]) { --board-filter: grayscale(1) brightness(1.35); --board-opacity: .24; }
 }
-:root[data-theme="dark"] { --board-opacity: .07; }
+:root[data-theme="dark"] { --board-filter: grayscale(1) brightness(1.35); --board-opacity: .24; }
 @media (max-width: 40rem) {
-  .board { height: 340px; }
-  .board-ink { -webkit-mask-size: 1224px 340px; mask-size: 1224px 340px; }
+  .board { height: 440px; }
+  .board-ink { background-size: auto 340px; background-position: right -8rem top 4rem; opacity: .12; }
 }
 @media print { .board { display: none; } }
 
@@ -271,6 +273,7 @@ a.course-card:hover { border-color: var(--card-accent); transform: translateY(-1
 }
 .site-footer p { margin: 0; max-width: var(--measure); }
 .site-footer a { color: var(--text-muted); }
+.site-footer .art-credit { margin-top: .4rem; font-size: .75rem; }
 
 /* Keyboard users should not have to tab through the header first. */
 .skip-link {
