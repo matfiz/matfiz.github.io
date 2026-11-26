@@ -169,10 +169,8 @@ body {
 .site-nav a:hover { color: var(--text); background: var(--bg-sunken); }
 
 /* The language switcher: a segmented control at the end of the navigation,
-   carried over from the course sites so the two chromes match. The full name
-   is what a reader looking for their language scans for, so it is the label
-   on a wide header; the code alone carries it once the header runs out of
-   room. */
+   carried over from the course sites so the two chromes match. Short codes;
+   the full names are in tooltips and accessible labels. */
 .lang-switch {
   display: flex; align-items: center; margin-left: .5rem;
   border: 1px solid var(--rule); border-radius: 7px; overflow: hidden;
@@ -186,10 +184,6 @@ body {
 .site-nav .lang-switch a:hover { color: var(--text); background: var(--bg-sunken); }
 .site-nav .lang-switch a[aria-current="true"] {
   color: var(--accent-text); background: var(--bg-sunken); cursor: default;
-}
-.lang-switch .lang-full { font-weight: 500; }
-@media (max-width: 62rem) {
-  .lang-switch .lang-full { display: none; }
 }
 
 .theme-toggle {
